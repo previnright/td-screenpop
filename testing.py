@@ -30,7 +30,7 @@ def webhook():
 def get_tasks():
     return jsonify(data)
 
-@app.route('/post', methods=['GET'])
+@app.route('/post', methods=['POST'])
 def create_task():
     if not request.json:
         abort(400)
