@@ -14,9 +14,9 @@ def handleMessage(msg):
 	print('Message: ' + msg)
 	send(msg, broadcast=True, namespace = '/')
 
-# @app.route('/socket')
-# def socket():
-# 	return render_template('data.html')
+@app.route('/socket')
+def socket():
+	return render_template('data.html')
 
 @app.route('/', methods=['POST', 'GET'])
 def webhook():
