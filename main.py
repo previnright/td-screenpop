@@ -10,13 +10,16 @@ app.config['SECRET_KEY'] = 'mysecret'
 socketio = SocketIO(app)
 
 @socketio.on('message')
-def handleMessage(msg):
-	print('Message: ' + msg)
-	send(msg, broadcast=True, namespace = '/')
+def handleMessage(message):
+	print('Received Message: ' + message)
 
-@app.route('/socket')
-def socket():
-	return render_template('data.html')
+@socketio.on('message2')
+def handleMessage2(message2):
+    send(message2, broadcast=True, namespace='/test')
+
+# @app.route('/socket')
+# def socket():
+# 	return render_template('data.html')
 
 @app.route('/', methods=['POST', 'GET'])
 def webhook():
@@ -32,7 +35,8 @@ def webhook():
 	    print(test)
 	    test2 = json.dumps(test)
 	    test3 = str(test)
-	    handleMessage(test2)
+	    test3 = 'Sent Message: ' + test3
+	    handleMessage2(test3)
 	    # socketio.emit('my response', test2)
 	    # print('Message: ' + test2)
 	    return jsonify(test), 201
@@ -48,4 +52,4 @@ def not_found(error):
 
 if __name__ == '__main__':
     # app.run(debug=True)
-    socketio.run(app)
+    socketio.run(app, threaded=True)
