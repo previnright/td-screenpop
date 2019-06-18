@@ -32,7 +32,7 @@ def webhook():
 	    print(test)
 	    test2 = json.dumps(test)
 	    test3 = str(test)
-	    handleMessage(test3)
+	    handleMessage(test2)
 	    # socketio.emit('my response', test2)
 	    # print('Message: ' + test2)
 	    return jsonify(test), 201
