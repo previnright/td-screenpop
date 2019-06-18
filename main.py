@@ -12,7 +12,7 @@ socketio = SocketIO(app)
 @socketio.on('message')
 def handleMessage(msg):
 	print('Message: ' + msg)
-	send(msg, broadcast=True, namespace = '/')
+	send(msg, broadcast=True, namespace = '/test')
 
 # @app.route('/socket')
 # def socket():
