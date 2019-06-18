@@ -22,8 +22,8 @@ def socket():
 def webhook():
 
 	if request.method == 'POST':
-	    if not request.json:
-	        abort(400)
+	    # if not request.json:
+	    #     abort(400)
 	    test = {
 	        "contact_phone_number": request.json["contact_phone_number"],
 	        "call_id": request.json["call_id"],
