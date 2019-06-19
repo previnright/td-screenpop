@@ -39,7 +39,7 @@ def webhook():
 	    test3 = str(test)
 	    test3 = 'Sent: ' + test3
 	    sentMessage(test2)
-	    return jsonify(test2), 201
+	    return jsonify(test), 201
 
 	else:
 		print("hello terminal")
