@@ -38,7 +38,7 @@ def webhook():
 	    test2 = json.dumps(test)
 	    test3 = str(test)
 	    test3 = 'Sent: ' + test3
-	    sentMessage(test3)
+	    sentMessage(test2)
 	    return jsonify(test), 201
 
 	else:
