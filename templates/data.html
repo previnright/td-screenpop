@@ -7,12 +7,12 @@
 <body>
 <script type="text/javascript">
 $(document).ready(function() {
-	var socket = io.connect('http://td-screenpop.herokuapp.com/');
+	var socket = io.connect('http://127.0.0.1:5000/');
 	socket.on('connect', function() {
 		socket.send('User has connected!');
 	});
-	socket.on('message', function(msg) {
-		$("#messages").append('<li>'+msg+'</li>');
+	socket.on('message', function(message) {
+		$("#messages").append('<li>'+message+'</li>');
 		console.log('Received message');
 	});
 	// $('#sendbutton').on('click', function() {
