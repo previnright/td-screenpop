@@ -26,14 +26,15 @@ def socket():
 def webhook():
 
 	if request.method == 'POST':
-	    # if not request.json:
-	    #     abort(400)
+	    if not request.json:
+	        abort(400)
 	    test = {
 	        "contact_phone_number": request.json["contact_phone_number"],
 	        "call_id": request.json["call_id"],
 	        "url": request.json["url"]
 	    }
 	    print(test)
+	    print(test["contact_phone_number"])
 	    test2 = json.dumps(test)
 	    test3 = str(test)
 	    test3 = 'Sent: ' + test3
@@ -50,5 +51,5 @@ def not_found(error):
 
 
 if __name__ == '__main__':
-    # app.run(debug=True)
-    socketio.run(app)
+    app.run(debug=True)
+    # socketio.run(app)
