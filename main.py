@@ -9,9 +9,9 @@ app.config['SECRET_KEY'] = 'mysecret'
 # app.config.from_object('config')
 socketio = SocketIO(app)
 
-@socketio.on('msg')
-def receivedMessage(msg):
-	print('Received: ' + msg)
+# @socketio.on('msg')
+# def receivedMessage(msg):
+# 	print('Received: ' + msg)
 	# send(msg, broadcast=True, namespace='/')
 
 @socketio.on('message')
@@ -34,7 +34,7 @@ def webhook():
 	        "url": request.json["url"]
 	    }
 	    print(test)
-	    print(test["contact_phone_number"])
+	    # print(test["contact_phone_number"])
 	    test2 = json.dumps(test)
 	    test3 = str(test)
 	    test3 = 'Sent: ' + test3
