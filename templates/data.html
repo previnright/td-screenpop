@@ -7,7 +7,7 @@
 <body>
 <script type="text/javascript">
 $(document).ready(function() {
-	var socket = io.connect('https://td-screenpop.herokuapp.com/');
+	var socket = io.connect('');
 	socket.on('connect', function() {
 		socket.send('User has connected!');
 	});
