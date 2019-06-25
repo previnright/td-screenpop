@@ -18,6 +18,10 @@ socketio = SocketIO(app)
 def sentMessage(message):
     send(message, broadcast=True, namespace='/')
 
+@app.route('/screenpop')
+def image():
+	return render_template('screenpop.html')
+
 @app.route('/socket')
 def socket():
 	return render_template('data.html')
@@ -51,5 +55,5 @@ def not_found(error):
 
 
 if __name__ == '__main__':
-    # app.run(debug=True)
-    socketio.run(app)
+    app.run(debug=True)
+    # socketio.run(app)
